@@ -4,6 +4,8 @@ const { ApolloServer, gql } = require("apollo-server-express");
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type Query {
+    greeting(name: String, position: String): String!
+    add(num1: Float!, num2: Float!): Float!
     me: User!
     post: Post!
   }
@@ -25,6 +27,16 @@ const typeDefs = gql`
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
+    greeting(parent, args, ctx, info){
+      if(args.name && args.position){
+        return `Hello, ${args.name}! You are a great ${args.position}`
+      } else  {
+        return 'Hello!'
+      }
+    },
+    add(parent, args, ctx, info){
+      return args.num1 + args.num2
+    },
     me() {
       return{
         id: '123098',
@@ -55,6 +67,6 @@ const port = 4000;
 
 app.listen({ port }, () =>
   console.log(
-    `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`
+    `🚀 Server ready at ${port}${server.graphqlPath}`
   )
 );
