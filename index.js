@@ -4,14 +4,38 @@ const { ApolloServer, gql } = require("apollo-server-express");
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
   type Query {
-    hello: String
+    me: User!
+    post: Post!
+  }
+
+  type User {
+    id: ID!
+    name: String!
+    email: String!
+    age: Int
+  }
+  type Post {
+    id: ID!
+    title: String!
+    body: String!
+    published: Boolean!
   }
 `;
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: () => "Hello world from ApolloServer on Now 2.0!"
+    me: () => {
+      id: '123098'
+      name: 'Jason'
+      email: 'jason@goodfaith.church'
+    },
+    post: () => {
+      id: '092'
+      title: 'How to Work'
+      body: 'Doing the most Good.'
+      published: false
+    }
   }
 };
 
