@@ -25,16 +25,20 @@ const typeDefs = gql`
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    me: () => {
-      id: '123098'
-      name: 'Jason'
-      email: 'jason@goodfaith.church'
+    me() {
+      return{
+        id: '123098',
+        name: 'Jason',
+        email: 'jason@goodfaith.church'
+      }
     },
-    post: () => {
-      id: '092'
-      title: 'How to Work'
-      body: 'Doing the most Good.'
-      published: false
+    post(){
+      return {
+        id: '092',
+        title: 'How to GraphQL',
+        body: 'Doing the most Good.',
+        published: false
+      }
     }
   }
 };
