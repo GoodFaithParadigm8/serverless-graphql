@@ -41,14 +41,14 @@ const resolvers = {
       return{
         id: '123098',
         name: 'Jason',
-        email: 'jason@goodfaith.church'
+        email: 'support@goodfaith.church'
       }
     },
     post(){
       return {
-        id: '092',
-        title: 'How to GraphQL',
-        body: 'Doing the most Good.',
+        id: '007',
+        title: 'Good Faith Paradigm',
+        body: 'Co-Creating A New Faith Based Paradigm.',
         published: false
       }
     }
