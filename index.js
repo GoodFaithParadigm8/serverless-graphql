@@ -38,13 +38,13 @@ const resolvers = {
       return args.num1 + args.num2
     },
     me() {
-      return{
+      return {
         id: '123098',
         name: 'Jason',
         email: 'support@goodfaith.church'
       }
     },
-    post(){
+    post() {
       return {
         id: '007',
         title: 'Good Faith Paradigm',
